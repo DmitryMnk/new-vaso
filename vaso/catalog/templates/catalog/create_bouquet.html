@@ -1,0 +1,105 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'main/css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/fonts.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'catalog/css/catalog.css' %}">
+    <link rel="stylesheet" href="{% static 'catalog/css/catalog_media.css' %}">
+    <title>{{title}}</title>
+</head>
+<body>
+    <section class="catalog__section">
+        <div class="catalog__container container">
+            <div class="detail__head">
+                <a href="{% url 'main' %}" class="detail__back-link back-link"></a>
+                <a href="{% url 'main' %}" class="detail__back-link-logo back-link-logo"></a>
+            </div>
+            <form method="post" class="catalog__form">
+                {% csrf_token %}
+                <div class="catalog__form-block">
+                    <p class="catalog__form-block-title">1. Какие цвета вы хотите видеть в вашем букете?</p>
+                    <ul class="catalog__form-block-list reset-list">
+                        {% for color in colors %}
+                            <li class="catalog__form-block-list-item">
+                                <label class="catalog__form-block-list-item-label">
+                                    <input name="color" class="catalog__custom-checkbox custom-checkbox" value="{{color}}" type="checkbox">
+                                    <div class="catalog__form-checkbox-block">
+                                        <div class="catalog__form-checkbox-block-color" style="background-color: {{color.color}};"></div>
+                                        <p class="catalog__form-checkbox-block-name">{{ color.name }}</p>
+                                    </div>
+                                </label>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="catalog__form-block">
+                    <p class="catalog__form-block-title">2. Какую упаковку вы предпочитаете для букета?</p>
+                    <ul class="catalog__form-block-list reset-list">
+                        {% for pack in package %}
+                            <li class="catalog__form-block-list-item">
+                                <label class="catalog__form-block-list-item-label">
+                                    <input name="package" required class="catalog__custom-checkbox custom-radiobutton" value="{{pack}}" type="radio">
+                                    <div class="catalog__form-checkbox-block checkbox-block-with-img">
+                                        <img src="{{ pack.image.url }}" alt="" class="catalog__form-checkbox-block-image">
+                                        <p class="catalog__form-checkbox-block-name">{{ pack.name }}</p>
+                                    </div>
+                                </label>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <div class="catalog__form-block">
+                    <p class="catalog__form-block-title">3. Укажите ваш бюджет на букет</p>
+                    <p class="catalog__form-block-subtitle">Наши флористы соберут лучший букет исходя из ваших предпочтений и букета. (Минимальная сумма: 1350 р.)</p>
+                    <input id="budget" name="budget" placeholder="Напишите ответ здесь" type="text" required class="catalog__form-input input-styles">
+                </div>
+
+                <div class="catalog__form-block">
+                    <p class="catalog__form-block-title">4. Что ещё стоит учесть в букете?</p>
+                    <p class="catalog__form-block-subtitle">Пропустите если нет дополнительных пожеланий.</p>
+                    <input name="else" placeholder="Напишите ответ здесь" type="text" class="catalog__form-input input-styles">
+                </div>
+
+                <div class="catalog__form-block">
+                    <p class="catalog__form-block-title">5. Укажите ваше имя?</p>
+                    <input name="name" required placeholder="Напишите ответ здесь" type="text" class="catalog__form-input input-styles">
+                </div>
+
+                <div class="catalog__form-block">
+                    <p class="catalog__form-block-title">6. Укажите адрес доставки.</p>
+                    <input name="address" required placeholder="Напишите ответ здесь" type="text" class="catalog__form-input input-styles">
+                </div>
+
+                <button id="submit-button" class="catalog__button" type="submit">заказать</button>
+            </form>
+        </div>
+        
+    </section>
+</body>
+<script>
+    const budgetInput = document.getElementById('budget');
+    const submitButton = document.getElementById('submit-button');
+    const 
+    
+    budgetInput.addEventListener('input', () => {
+        const value = budgetInput.value
+        if (value[value.length - 1] < '0' || value[value.length - 1] > '9') {
+            budgetInput.value = value.slice(0, -1);
+        }
+    })
+
+    submitButton.addEventListener('click', (e) => {
+        if (budgetInput.value < 1350) {
+            e.preventDefault();
+        }
+
+        
+    })
+
+</script>
+</html>

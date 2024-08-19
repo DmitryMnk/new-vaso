@@ -1,0 +1,235 @@
+.catalog__container {
+    max-width: calc(540px + 20px + 430px + 20px);
+    padding: 0 20px;
+}
+
+.catalog__section {
+    padding-bottom: 250px;
+}
+
+.back-link {
+    position: absolute;
+    left: 0;
+    top: calc(50% - 8px);
+    display: block;
+    width: 48px;
+    height: 48px;
+    background-image: url('../img/card/next3-sm.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.detail__back-link-logo {
+    margin: 0 auto;
+    display: block;
+    width: 180px;
+    height: 48px;
+    background: url('../img/card/main-black.svg') no-repeat center;
+    background-size: contain;
+}
+
+.detail__head {
+    padding-top: 30px;
+    margin: 0 auto;
+    position: relative;
+    max-width: calc(540px + 20px + 430px);
+    margin-bottom: 100px;
+}
+
+.detail__content {
+    display: flex;
+    justify-content: center;
+}
+
+.detail__content-photos {
+    margin-right: 20px;
+    width: 430px;
+    height: 480px;
+}
+
+.detail__description {
+    padding-right: 20px;
+    max-width: 540px;
+
+}
+
+.detail__description-content {
+    margin-bottom: 30px;
+}
+
+.detail__description-content p {
+    font-family: 'Grtsk Peta';
+    font-size: 20px;
+}
+
+.detail__form-block {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+
+.detail__form-label {
+    margin-bottom: 20px;
+    font-family: 'Grtsk Peta';
+    font-size: 20px;
+}
+
+.detail__description-title {
+    margin-bottom: 30px;
+    font-family: 'Grtsk Peta';
+    font-size: 30px;
+}
+
+.detail__form-block span {
+    font-family: 'Grtsk Peta';
+    font-size: 30px;
+}
+
+.catalog__button {
+    border: none;
+    border-radius: 10px;
+    width: 180px;
+    height: 38px;
+    font-size: 22px;
+    color: white;
+    font-family: 'Grtsk Peta';
+    font-weight: 400;
+    background-color: #7474c1cd;
+    cursor: pointer;
+    transition: transform 200ms ease-in-out,
+                background-color 200ms ease-in-out;
+}
+
+.catalog__button:hover {
+    background-color: #8d74ff;
+}
+
+.catalog__button:active {
+    background-color: #705ad3;
+    transform: scale(0.98);
+}
+
+/* CREATE-BOUQUETE */
+
+.catalog__form-checkbox-block-color {
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    border: 1px solid black;
+    margin-right: 10px;
+}
+
+.catalog__form-checkbox-block {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px 20px;
+    padding-left: 10px;
+    border-radius: 20px;
+    background-color: #e9e3ff;
+    border: 1px solid #D9D8DE;
+    transition: background-color 200ms ease-in-out
+}
+
+
+.catalog__custom-checkbox {
+    display: none;
+}
+
+.catalog__custom-checkbox:checked + div {
+    background-color: #c1b3ff;
+}
+
+.catalog__form-block {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+
+.catalog__form-block-list-item-label {
+    cursor: pointer;
+    height: 100%;
+}
+
+.catalog__form-checkbox-block-name {
+    color: #705ad3;
+    font-family: 'Grtsk Peta';
+    font-weight: 400;
+    text-align: center;
+}
+
+
+.catalog__form-block-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.checkbox-block-with-img {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    height: 100%;
+}
+
+.catalog__form-checkbox-block-image {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+}
+
+.catalog__form-block-title {
+    margin-bottom: 30px;
+}
+
+.catalog__form-input {
+    border-bottom: 1px solid #8d74ff;
+    color: #8d74ff;
+}
+
+.catalog__form-input::placeholder {
+    color: #c6b9ff;
+    font-family: 'Grtsk Peta';
+}
+
+.catalog__form-block-subtitle {
+    margin-bottom: 20px;
+}
+
+.catalog__form-block-title {
+    font-size: 20px;
+    font-family: 'Grtsk Peta';
+    background-color: #e9e3ff;
+    padding-inline: 10px;
+    padding-block: 15px;
+    font-weight: 500;
+}
+
+.catalog__form-block-subtitle {
+    font-size: 18px;
+    font-family: 'Grtsk Peta';
+}
+
+.swiper {
+    margin: 0;
+    height: 100%;
+}
+
+.swiper-slide {
+    height: 100%;
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.detail__content-swiper-slide-card {
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}

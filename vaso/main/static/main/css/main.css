@@ -1,0 +1,1089 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box !important;
+    outline: none!important;
+}
+body {
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.reset-list {
+    list-style: none;
+    padding: none;
+}
+
+.input-styles {
+    padding: 10px;
+    padding-bottom: 5px;
+    border: none;
+    border-bottom: 1px solid #000000;
+    font-family: 'GrtskPeta-Regular';
+    font-size: 20px;
+}
+
+.order-button {
+    width: 420px;
+    height: 90px;
+    border-radius: 30px;
+    border: none;
+    background: rgba(116, 116, 193, 0.84);
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+#main .user-icon {
+    display: block;
+    width: 50px;
+    height: 50px;
+    background: url("../img/user-lg.svg") no-repeat;
+    border: 0px;
+    position: absolute;
+    top: 100px;
+    right: 15%
+}
+
+#workspce .user-icon {
+    display: block;
+    width: 50px;
+    height: 50px;
+    background: url("../img/user-lg.svg") no-repeat;
+    border: 0px;
+}
+
+.main-menu-text {
+    font-family: 'Grtsk Peta', sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 28px;
+    line-height: 36px;
+}
+
+.info-text {
+    font-family: 'Grtsk Peta', sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 25px;
+    line-height: 36px;
+}
+
+.info-text-online {
+    font-family: 'Grtsk Peta', sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 25px;
+    line-height: 33px;
+}
+
+h1 {
+    font-family: 'Grtsk Peta', sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 82px !important;
+    line-height: 107px;
+}
+
+a {
+    text-decoration: none;
+        color: var(--bs-body-color)
+}
+
+.card-text-header {
+    font-family: 'Grtsk Peta', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.card-text-md {
+    font-family: 'Grtsk Peta', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.online-card-text {
+    font-family: 'Grtsk Peta', sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 32px;
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    color: #A1A1A1;
+    mix-blend-mode: difference;
+}
+
+.online-card-btn-text {
+    font-family: 'Grtsk Peta', sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 32px;
+}
+
+.phone-text {
+    font-family: 'Grtsk Peta', sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 34px;
+    line-height: 55px;
+}
+.user-name-workspace {
+    font-family: 'Grtsk Peta', sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 45px;
+    line-height: 62px;
+}
+
+.light-text-workspace {
+    font-family: 'Grtsk Peta', sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 35px;
+    line-height: 62px;
+}
+
+.normal-text-workspace {
+    font-family: 'Grtsk Peta', sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 48px;
+    line-height: 62px;
+}
+
+.title-text-workspace {
+    font-family: 'Grtsk Peta', sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 46px;
+    line-height: 60px;
+}
+
+.status-card-text-title-workspace {
+    font-family: 'Grtsk Peta', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 22px;
+    line-height: 30px;
+}
+
+.status-card-text-main-workspace {
+    font-family: 'Grtsk Peta', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 17px;
+    line-height: 24px;
+}
+
+.support-md-text-workspace {
+    font-family: 'Grtsk Peta', sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 22px;
+    line-height: 31px;
+}
+
+.support-lg-text-workspace {
+    font-family: 'Grtsk Peta', sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 32px;
+    line-height: 41px;
+}
+
+.support-md-md-text-workspace {
+    font-family: 'Grtsk Peta', sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 28px;
+    line-height: 31px;
+}
+
+.support-lg-normal-text-workspace {
+    font-family: 'Grtsk Peta', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 41px;
+}
+
+.client-card-workspace-text {
+    font-family: 'Grtsk Peta', sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 20px;
+    line-height: 26px;
+}
+
+.client-card-workspace-text-bold {
+    font-family: 'Grtsk Peta', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
+    line-height: 26px;
+}
+
+.support-workspace-text {
+    font-family: 'Grtsk Peta', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 31px;
+}
+
+.auth-menu-title {
+    font-family: 'Grtsk Peta', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 36px;
+    line-height: 43px;
+}
+
+.main-logo-max {
+    width: 650px;
+    height: 171px;
+    background: url("../img/main-logo.svg") no-repeat center;
+    background-size: contain;
+}
+
+.main-logo-md-md {
+    width: 249px;
+    height: 66px;
+    background: url("../img/main-logo.svg") no-repeat center;
+    background-size: contain;
+}
+
+.main-logo-md-sm {
+    width: 249px;
+    height: 66px;
+    background: url("../img/main-logo.svg") no-repeat center;
+    background-size: contain;
+}
+.main-logo-sm-sm {
+    width: 100px;
+    height: 27px;
+    background: url("../img/main-logo.svg") no-repeat center;
+    background-size: contain;
+}
+
+.bg-flower-1 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 1024px;
+    background: url("../img/bg-flower-1.png") no-repeat center;
+    background-size: cover;
+}
+
+.bg-flower-2 {
+    width: 100%;
+    min-height: 712px;
+    background: url("../img/bg-flower-2.png") no-repeat center;
+    background-size: cover;
+}
+.bg-grey {
+    background: #F5F5F5;
+}
+.limit-word {
+word-wrap: break-word;
+overflow: hidden;
+text-overflow: ellipsis;
+display: -webkit-box;
+-webkit-line-clamp: 1;
+-webkit-box-orient: vertical;
+padding-bottom: 1px;
+}
+.limit-word-two-line {
+word-wrap: break-word;
+overflow: hidden;
+text-overflow: ellipsis;
+display: -webkit-box;
+-webkit-line-clamp: 2;
+-webkit-box-orient: vertical;
+padding-bottom: 1px;
+}
+.no-gutters {
+    padding-right: 12px;
+    padding-left: 12px;
+}
+
+.pt-96 {
+    padding-top: 96px;
+}
+
+.pt-300 {
+    padding-top: 300px;
+}
+
+.mt-line-fist {
+    margin-top: auto;
+}
+
+.h-121 {
+    height: 121px;
+}
+
+.bg-purple {
+    background: #7474C1;
+}
+
+.bg-purple .logo-block {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    width: max-content;
+}
+
+.purple-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 273px;
+    height: 315px;
+    background: rgba(167, 164, 224, 0.81);
+    border-radius: 10px;
+}
+
+.grey-card-max {
+    width: 500px;
+    border-radius: 10px;
+}
+
+.btn-order > .btn {
+    width: 420px;
+    height: 90px;
+    border-radius: 30px;
+    border: none;
+    background: rgba(116, 116, 193, 0.84);
+    box-shadow: none;
+}
+
+.btn-order > .btn > span {
+    font-family: 'Grtsk Peta', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 62px;
+    line-height: 67px;
+}
+
+.circle-icon {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background: #CDCDCE;
+    border: 1px solid #CDCDCE;
+    border-radius: 50%;
+}
+
+.medal-icon {
+    width: 85px;
+    height: 85px;
+    background: url("../img/medal-icon.png") no-repeat center;
+}
+
+.delivery-truck-icon {
+    width: 85px;
+    height: 85px;
+    background: url("../img/delivery-truck-icon.png") no-repeat center;
+}
+
+.scroll-line {
+    display: flex;
+    align-items: center;
+    height: 79px;
+    background: #A7A4E0;
+    position: relative;
+    overflow: hidden;
+    user-select: none;
+    gap: 20px;
+}
+
+.scroll-line:before,
+.scroll-line:after {
+    content: "";
+    height: 100%;
+    top: 0;
+    width: 10%;
+    position: absolute;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.items {
+    flex-shrink: 0;
+    display: flex;
+    gap: 20px;
+    counter-reset: item;
+    justify-content: space-around;
+    min-width: 100%;
+}
+
+.item {
+    flex: 0 0 auto;
+    counter-increment: item;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.1s ease-in-out;
+    width: 174px;
+    height: 46px;
+    background: url("../img/main-logo-md-sm.png") repeat center;
+}
+
+.marquee {
+    animation: scroll 25s linear infinite;
+}
+
+.items-wrap:hover .marquee {
+    animation-play-state: paused;
+}
+
+.auth-menu {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 50px;
+    padding-left: 50px;
+}
+
+.offcanvas.offcanvas-end {
+    width: 560px !important;
+}
+
+#phone-input {
+    width: 200px !important;
+    height: 40px !important;
+    border: 0!important
+}
+#phone-input:focus-visible {
+    outline: none;
+}
+.line-input {
+    border-bottom: 1px solid #D1CDCD;
+}
+
+.offcanvas-end .btn-close {
+    width: 30px !important;
+    height: 30px !important;
+}
+.unselectable {
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+
+    /*
+    Introduced in IE 10.
+    See http://ie.microsoft.com/testdrive/HTML5/msUserSelect/
+    */
+    -ms-user-select: none;
+    user-select: none;
+}
+
+input[type="number"] {
+width: 40px;
+height: 40px;
+line-height: 40px;
+border-radius: 5px;
+font-size: 20px;
+text-align: center;
+-webkit-appearance: none;
+-moz-appearance: none;
+}
+
+input[type=number]::-webkit-inner-spin-button{
+-webkit-appearance: none;
+-moz-appearance: none;
+appearance: none;
+margin: 0;
+}
+
+input[type=number]::-webkit-outer-spin-button {
+-webkit-appearance: none;
+-moz-appearance: none;
+appearance: none;
+margin: 0;
+}
+.place-prod-card input {
+    width: 100%;
+    height: 30px;
+    border: 0;
+}
+
+@keyframes scroll {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(calc(-100% - 20px));
+    }
+}
+
+.online-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    width: 330px;
+    height: 362px;
+    padding: 15px;
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.online-card > .btn {
+    width: 166px;
+    height: 42px;
+    border-radius: 20px;
+    border: none;
+    background: rgba(116, 116, 193, 0.74);
+    box-shadow: none;
+}
+
+.contact {
+    display: flex;
+    align-items: center;
+    background: #7474C1;
+    padding: 40px;
+}
+
+.telegram-icon {
+    display: block;
+    width: 60px;
+    height: 60px;
+    background: url("../img/telegram-icon.png") no-repeat center;
+}
+
+.vk-icon {
+    display: block;
+    width: 60px;
+    height: 60px;
+    background: url("../img/vk-icon.png") no-repeat center;
+}
+
+.whatsapp-icon {
+    display: block;
+    width: 60px;
+    height: 60px;
+    background: url("../img/whatsapp-icon.png") no-repeat center;
+}
+
+.flower-left-block {
+    width: 100%;
+    height: 100%;
+    min-height: 577px;
+    background: url("../img/card/flower-block.png") no-repeat center;
+    background-size: cover;
+}
+
+.logo-black {
+    width: 180px;
+    height: 48px;
+    background: url("../img/card/main-black.svg") no-repeat center;
+    background-size: contain;
+}
+
+.info-text-prod-card {
+    font-family: 'Grtsk Peta', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 18px;
+    line-height: 28px;
+    word-break: break-word;
+}
+
+.header-prod-card {
+    font-family: 'Grtsk Peta', sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 38px;
+    line-height: 50px;
+}
+
+.place-prod-card {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+}
+
+.btn-order-prod-card > .btn {
+    width: 256px;
+    height: 52px;
+    border-radius: 15px;
+    border: none;
+    background: rgba(116, 116, 193, 0.74);
+    box-shadow: none;
+}
+
+.btn-order-prod-card > .btn > span {
+    font-family: 'Grtsk Peta', sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 32px;
+    line-height: 41px;
+}
+
+.sum-prod-card {
+    font-family: 'Grtsk Peta', sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 31px;
+}
+
+.viewing-prod-card {
+    font-family: 'Grtsk Peta', sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 12px;
+    line-height: 14px;
+}
+
+.container-workspace {
+    width: 100%;
+    max-width: 1920px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.toolbar-workspace {
+    height: 70px;
+    width: 100%;
+    background: #7474C1;
+}
+
+.toolbar-workspace-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.back-btn-card  {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    width: 48px;
+    height: 48px;
+    background: url("../img/card/next2.svg") no-repeat center;
+    border: none;
+    box-shadow: none;
+    mix-blend-mode: difference;
+}
+.back-btn-sm-card  {
+    position: absolute;
+    top: 12px;
+    left: 34px;
+    width: 24px;
+    height: 24px;
+    background: url("../img/card/next3-sm.svg") no-repeat center;
+    border: none;
+    box-shadow: none;
+}
+
+.back-btn-workspace {
+    position: absolute;
+    top: 23px;
+    left: 0;
+    width: 24px;
+    height: 24px;
+    background: url("../img/workspace/next1.svg") no-repeat center;
+    border: none;
+    box-shadow: none;
+}
+.client-card-workspace {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 30px;
+    background: #A7A4E0;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 400px;
+    height: 200px;
+}
+
+.info-icon-workspace {
+    position: absolute;
+    top: 0;
+    right: 8px;
+    width: 24px;
+    height: 24px;
+    background: url("../img/workspace/info.svg") no-repeat center;
+}
+
+.status-card-workspace {
+    border: 1px solid #000000;
+    border-radius: 10px;
+    padding: 40px;
+    margin-bottom: 20px;
+    max-width: 766px;
+}
+
+.status-card-workspace img {
+    width: 100%;
+    max-width: 328px;
+    height: 362px;
+}
+
+.btn-chat-status-card-workspace {
+    width: 304px;
+    height: 49px;
+    border-radius: 20px;
+    border: none;
+    background: rgba(116, 116, 193, 0.74);
+    box-shadow: none;
+}
+
+.btn-cancellations-card-workspace {
+    width: 304px;
+    height: 49px;
+    border-radius: 20px;
+    border: 1px solid #A1A1A1;
+    background: #ffffff;
+    box-shadow: none;
+}
+
+.btn-cancellations-card-workspace > span {
+    color: #A1A1A1
+}
+
+.btn-pay-order-card-workspace {
+    width: 304px;
+    height: 49px;
+    border-radius: 20px;
+    border: none;
+    background: #BFCC80;
+    box-shadow: none;
+}
+
+.order-line-workspace img {
+    width: 278px;
+    height: 312px;
+}
+
+.divider-line {
+    display: block;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #D1CDCD;
+}
+
+.support-workspace {
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+
+.support-icon {
+    display: block;
+    width: 64px;
+    height: 64px;
+    background: url("../img/workspace/support-icon.svg") no-repeat center;
+}
+
+.logout-icon {
+    display: block;
+    border: none;
+    width: 30px;
+    height: 30px;
+    background: url("../img/workspace/logout-icon.svg") no-repeat center;
+}
+
+
+.description-workspace-text {
+    font-family: 'Grtsk Peta', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 15px;
+    line-height: 15px;
+}
+
+.description-workspace-btn {
+    width: 100%;
+    border: none;
+    box-shadow: none;
+    border-bottom: 1px solid #D1CDCD;
+    background: transparent;
+}
+
+.accordion-item {
+    border: none !important;
+}
+
+.plus-icon {
+    font-family: 'Grtsk Peta', sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 18px;
+    line-height: 24px;
+}
+.check-icon {
+    display: block;
+    width: 36px;
+    height: 36px;
+    background: url("../img/workspace/check-icon.svg") no-repeat;
+}
+
+.free-icon {
+    display: block;
+    width: 36px;
+    height: 36px;
+    background: url("../img/workspace/free-icon.svg") no-repeat;
+}
+.diamond-icon {
+    display: block;
+    width: 36px;
+    height: 36px;
+    background: url("../img/workspace/diamond-icon.svg") no-repeat;
+}
+
+.order-img {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    width: 330px;
+    height: 362px;
+    padding: 15px;
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.button {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 5px 0;
+    background-color: #1a73e8;
+    color: white;
+    text-decoration: none;
+    border-radius: 3px;
+    text-align: center;
+    min-width: 80px;
+}
+
+@media (max-width: 768px) {
+    #main .user-icon {
+        display: block;
+        width: 35px;
+        height: 35px;
+        background: url("../img/user-md.svg") no-repeat;
+        border: 0px;
+        position: absolute;
+        top: 100px;
+        right: 15%
+    }
+    .link-btn {
+        width: 210px;
+        border: 1px #ffffff solid;
+        border-radius: 50px;
+    }
+
+    .main-menu-text {
+        font-size: 17px;
+        line-height: 18px;
+    }
+
+    h1 {
+        font-family: 'Grtsk Peta', sans-serif;
+        font-weight: 500;
+        font-style: normal;
+        font-size: 56px !important;
+        line-height: 36px;
+    }
+    .bg-purple .logo-block {
+        position: absolute;
+        top: 30px;
+        left: calc(50% - 124px);
+        width: max-content;
+    }
+    .grey-card-max {
+        background: #FFFFFFB5;
+    }
+    .card-text-header {
+        font-family: 'Grtsk Peta', sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 24px;
+        line-height: 24px;
+    }
+
+    .card-text-md {
+        font-family: 'Grtsk Peta', sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 15px;
+        line-height: 16px;
+    }
+
+    .phone-text {
+        font-family: 'Grtsk Peta', sans-serif;
+        font-weight: 500;
+        font-style: normal;
+        font-size: 30px;
+        line-height: 55px;
+    }
+
+    .flower-left-block {
+        width: 100%;
+        height: 100%;
+        min-height: 650px;
+        background: url("../img/card/flower-block.png") no-repeat center;
+        background-size: cover;
+    }
+
+    .place-prod-card {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    .light-text-workspace {
+        font-family: 'Grtsk Peta', sans-serif;
+        font-weight: 300;
+        font-style: normal;
+        font-size: 30px;
+        line-height: 62px;
+    }
+    .btn-order-prod-card > .btn {
+        width: 100%;
+        height: 52px;
+        border-radius: 15px;
+        border: none;
+        background: rgba(116, 116, 193, 0.74);
+        box-shadow: none;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    h1 {
+        font-family: 'Grtsk Peta', sans-serif;
+        font-weight: 500;
+        font-style: normal;
+        font-size: 50px !important;
+        line-height: 43px;
+    }
+    .phone-text {
+        font-family: 'Grtsk Peta', sans-serif;
+        font-weight: 500;
+        font-style: normal;
+        font-size: 25px;
+        line-height: 52px;
+    }
+    .btn-order > .btn {
+        width: 230px;
+        height: 50px;
+        border-radius: 30px;
+        border: none;
+        background: rgba(116, 116, 193, 0.84);
+    }
+    .btn-order > .btn > span {
+        font-family: 'Grtsk Peta', sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 28px;
+        line-height: 32px;
+    }
+
+    .info-text {
+        font-family: 'Grtsk Peta', sans-serif;
+        font-weight: 300;
+        font-style: normal;
+        font-size: 18px;
+        line-height: 28px;
+    }
+    .auth-menu-title {
+        font-family: 'Grtsk Peta', sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 27px;
+        line-height: 30px;
+    }
+    .bg-flower-2 {
+        width: 100%;
+        min-height: 615px;
+        background: url('./img/bg-flower-2-mobile.png') no-repeat center;
+        background-size: cover;
+    }
+    .online-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+        width: calc(100% / 2);
+        height: 295px;
+        padding: 15px;
+        position: relative;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .scroll-line {
+        display: flex;
+        align-items: center;
+        height: 55px;
+        background: #A7A4E0;
+        position: relative;
+        overflow: hidden;
+        user-select: none;
+        gap: 20px;
+    }
+
+    .scroll-line:before,
+    .scroll-line:after {
+        content: "";
+        height: 100%;
+        top: 0;
+        width: 10%;
+        position: absolute;
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    .items {
+        flex-shrink: 0;
+        display: flex;
+        gap: 20px;
+        counter-reset: item;
+        justify-content: space-around;
+        min-width: 100%;
+    }
+
+    .item {
+        flex: 0 0 auto;
+        counter-increment: item;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.1s ease-in-out;
+        width: 113px;
+        height: 46px;
+        background: url("../img/main-logo-md-sm.png") no-repeat center;
+        background-size: contain;
+    }
+    .circle-icon {
+        display: inline-block;
+        width: 19px;
+        height: 23px;
+        background: #EDEDEF;
+        border: 1px solid #EDEDEF;
+        border-radius: 50%;
+    }
+}
+  
+  

@@ -1,0 +1,419 @@
+{% load static %}
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="{% static 'main/css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/fonts.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+    <title> {{title}} </title>
+</head>
+<body id="main">
+
+    <section class="bg-flower-1">
+        <div class="container-md">
+            <div class="row justify-content-end justify-content-md-center pt-96 position-relative">
+                <div class="col-4 text-center d-none d-md-block">
+                    <a href="#bouquet" class="main-menu-text text-white ">
+                        Идеальный букет
+                    </a>
+                </div>
+                <div class="col-4 text-center d-none d-md-block">
+                    <a href="#online" class="main-menu-text text-white">Online-витрина</a>
+                </div>
+                <a {% if user.is_authenticated %} href="{% url 'account' %}"
+                   {% else %} data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" href="#offcanvasRight"
+                   {% endif %} class="user-icon">
+                </a>
+            </div>
+            <div class="row justify-content-center pt-300">
+                <div class="main-logo-max  d-none d-lg-block"></div>
+                <div class="main-logo-md-md  d-block d-lg-none"></div>
+    
+                <div class="row justify-content-center d-flex d-md-none mt-5 pt-5">
+                    <div class="d-flex justify-content-center w-100">
+                        <a href="#bouquet" class="main-menu-text text-white link-btn text-center p-4">
+                            Идеальный букет
+                        </a>
+                    </div>
+                    <div class="d-flex justify-content-center w-100 mt-3">
+                        <a href="#online"
+                           class="main-menu-text text-white link-btn text-center p-4">Online-витрина</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="bouquet">
+        <div class="d-flex justify-content-center py-5 py-md-2">
+            <h1 class="text-sm-white text-black text-center ">Идеальный букет</h1>
+        </div>
+        <div class="d-flex justify-content-center bg-grey py-3 px-3 px-md-0">
+            <span class="info-text text-center">Принимаем заказы с 8:00-22:00. Бесплатная доставка 24/7 до 2 часов.</span>
+        </div>
+        <div class="bg-flower-2 pt-2 pt-md-5">
+            <div class="container-md h-100">
+                <div class="row justify-content-md-start justify-content-center mt-md-3">
+                    <div class="grey-card-max p-4">
+                        <div class="row align-items-center justify-content-center">
+                            <i class="circle-icon me-2 me-lg-5"></i>
+                            <div class="col-9">
+                                <div class="row no-gutters ">
+                                    <span class="card-text-header mb-3">
+                                        Сделаем особый букет, для особого случая.
+                                    </span>
+                                </div>
+                                <div class="row no-gutters">
+                                <span class="card-text-md mt-1">
+                            Мы зададим вам 4 вопроса и приступим к сбору букета
+                        </span>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="row align-items-center justify-content-center my-5">
+                            <i class="circle-icon me-2 me-lg-5"></i>
+                            <div class="col-9">
+                                <div class="row no-gutters">
+                                <span class="card-text-header mb-3">
+                                    Гарантируем 100% возврат средств
+                                </span>
+                                </div>
+                                <div class="row no-gutters ">
+                                <span class="card-text-md mt-1">
+                            Если букет вам не понравится или простоит меньше 5 дней.
+                        </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row align-items-center justify-content-center">
+                            <i class="circle-icon me-2 me-lg-5"></i>
+                            <div class="col-9">
+                                <div class="row no-gutters">
+                                <span class="card-text-header mb-3">
+                                    Бесплатная доставка 24/7
+                                </span>
+                                </div>
+                                <div class="row no-gutters ">
+                                <span class="card-text-md mt-1">
+                                    Время доставки до 2 часов, точное время зависит от расстояния и дорожной обстановки
+                                </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center mt-5 pb-5 btn-order">
+                    <a href="{% url 'create_bouquet' %}" class="btn shadow-sm" role="button">
+                        <span class="text-white">Заказать</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    
+    </section>
+    
+    
+    <div class="scroll-line">
+        <div class="items marquee">
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+        </div>
+        <div aria-hidden="true" class="items marquee">
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+        </div>
+    </div>
+    <section id="online" class="no-gutters">
+        <div class="row justify-content-center py-5 py-md-0">
+            <h1 class="text-sm-white text-black text-center ">Online-витрина</h1>
+        </div>
+        <div class="row justify-content-center bg-grey py-3">
+            <span class="info-text text-center">Собранные букеты премиум класса, готовые к отправке.<br/>Время доставки от 60 до 120 минут (точное время доставки зависит от расстояния и дорожной обстановке)</span>
+        </div>
+        <div class="container-md h-100">
+            <div class="row justify-content-start">
+    
+                {% for item in items %}
+                <div class="online-card" style="background-image: url( '{% if item.photos %}  {{ item.photos.all.0.image.url }} {% else %} {% static 'main/default_images/default_bouquet.png' %} {% endif %}')">
+                        <span class="online-card-text text-white">{{ item.amount }}</span>
+                        <a href="{% url 'bouquet_detail' item.pk %}" class="btn btn-sm shadow-sm" role="button">
+                            <span class="online-card-btn-text text-white">Быстрый заказ</span>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    
+    </section>
+    <footer class="contact mt-2">
+        <div class="container-md h-100">
+            <div class="row justify-content-lg-center justify-content-between  align-items-center w-100">
+                <div class="col-12 col-lg-4">
+                    <div class="row justify-content-center">
+                        <div class="main-logo-md-md"></div>
+                    </div>
+    
+                </div>
+                <div class="col-lg-4 col-md-6 col-12 my-3 my-md-0">
+                    <div class="d-flex justify-content-center justify-content-md-center"><a href="#" class="main-menu-text text-white mb-2">О нас</a></div>
+                    <div class="d-flex justify-content-center justify-content-md-center"><a href="#" class="main-menu-text text-white mb-2">Доставка и оплата</a></div>
+                    <div class="d-flex justify-content-center justify-content-md-center"><a href="#" class="main-menu-text text-white">Поддержка</a></div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <div class="row justify-content-center"><a href="tel:+ 7 928 816 74 47"
+                                                               class="phone-text text-white text-center">+ 7 928 816 74
+                        47</a>
+                    </div>
+                    <div class="row justify-content-between justify-content-md-center mt-2">
+                        <div class="col-3">
+                            <div class="d-flex justify-content-center">
+                                <a href="#" class="telegram-icon"></a>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                             <div class="d-flex justify-content-center">
+                                 <a href="#" class="vk-icon"></a>
+                             </div>
+                        </div>
+                        <div class="col-3">
+                             <div class="d-flex justify-content-center">
+                                  <a href="#" class="whatsapp-icon"></a>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header">
+            <div class="d-flex justify-content-end  w-100">
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Закрыть"></button>
+            </div>
+        </div>
+        <div class="auth-menu" id="login">
+            <span class="auth-menu-title" id="staticBackdropLabel">Войти или зарегистрироваться</span>
+            <span class="mt-2">
+                Позвоним на указанный номер.
+    Введите последние четыре цифры номера телефона или код из SMS-сообщения.
+            </span>
+    
+            <label class="line-input w-100 mt-4" id="label-phone-input">
+                    <input value=""
+                           id="phone-input" placeholder="+7(000)000-00-00"/>
+                </label>
+            <span id="message"></span>
+    
+            <div class="d-none mt-4 pin-code" id="label-code-input">
+                <input id="label-code-input-one" type="number" maxlength="1" autofocus>
+                <input id="label-code-input-two" type="number" maxlength="1">
+                <input id="label-code-input-three" type="number" maxlength="1">
+                <input id="label-code-input-four" type="number" maxlength="1">
+            </div>
+    
+                <button class="btn-chat-status-card-workspace mt-5" id="sendForm">
+                    <span class="text-white">Получить код</span>
+                </button>
+    
+        </div>
+    </div>
+    <script>
+        const btn = document.querySelector('#sendForm');
+    
+    
+        let isFirstClick = true;
+    
+        const sendRequestToBackend = async (url, data) => {
+            try {
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+    
+                if (!response.ok) {
+                    throw new Error('Network response was not ok ' + response.statusText);
+                }
+    
+                const responseData = await response.json();
+                return responseData;
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        };
+    
+    const send = async () => {
+        if (isFirstClick) {
+            document.querySelector('#label-phone-input').classList.toggle("d-none");
+            document.querySelector('#label-code-input').classList.toggle("d-none");
+    
+            const firstChild = btn.children[0];
+            firstChild.innerHTML = "Отправить код";
+    
+            const phoneNumber = document.querySelector('#phone-input').value;
+            const phoneUrl = '';
+            await sendRequestToBackend(phoneUrl, { phone_number: phoneNumber });
+    
+            isFirstClick = false;
+        } else {
+            const part1 = document.querySelector('#label-code-input-one').value;
+            const part2 = document.querySelector('#label-code-input-two').value;
+            const part3 = document.querySelector('#label-code-input-three').value;
+            const part4 = document.querySelector('#label-code-input-four').value;
+    
+            const code = `${part1}${part2}${part3}${part4}`
+            const codeUrl = '';
+            const nextUrl = new URLSearchParams(window.location.search).get('next');
+    
+            const resp = await sendRequestToBackend(codeUrl, { otp: code, next: nextUrl });
+                if (resp && resp.isAuthorized) {
+                    window.location.href = resp.next;
+                }
+        }
+    };
+        if (btn) {
+            btn.addEventListener("click", send);
+        }
+    
+    
+    
+    
+    
+    
+        window.addEventListener("DOMContentLoaded", function() {
+      [].forEach.call( document.querySelectorAll('#phone-input'), function(input) {
+        var keyCode;
+        function mask(event) {
+          event.keyCode && (keyCode = event.keyCode);
+          var pos = this.selectionStart;
+          if (pos < 3) event.preventDefault();
+          var matrix = "+7 (___) ___ ____",
+              i = 0,
+              def = matrix.replace(/\D/g, ""),
+              val = this.value.replace(/\D/g, ""),
+              new_value = matrix.replace(/[_\d]/g, function(a) {
+                  return i < val.length ? val.charAt(i++) : a
+              });
+          i = new_value.indexOf("_");
+          if (i != -1) {
+              i < 5 && (i = 3);
+              new_value = new_value.slice(0, i)
+          }
+          var reg = matrix.substr(0, this.value.length).replace(/_+/g,
+              function(a) {
+                  return "\\d{1," + a.length + "}"
+              }).replace(/[+()]/g, "\\$&");
+          reg = new RegExp("^" + reg + "$");
+          if (!reg.test(this.value) || this.value.length < 5 || keyCode > 47 && keyCode < 58) {
+            this.value = new_value;
+          }
+          if (event.type == "blur" && this.value.length < 5) {
+            this.value = "";
+          }
+        }
+    
+        input.addEventListener("input", mask, false);
+        input.addEventListener("focus", mask, false);
+        input.addEventListener("blur", mask, false);
+        input.addEventListener("keydown", mask, false);
+    
+      });
+    
+    });
+    
+    document.addEventListener("DOMContentLoaded", function() {
+      var offcanvasElementList = [].slice.call(document.querySelectorAll('.offcanvas'));
+      var offcanvasList = offcanvasElementList.map(function (offcanvasEl) {
+        return new bootstrap.Offcanvas(offcanvasEl);
+      });
+    
+      // Функция для открытия выдвижной панели, если в URL есть параметр
+      function openAuthOffcanvasIfRequired() {
+        if (new URL(window.location).searchParams.get('auth') === 'open') {
+          const offcanvasAuth = document.querySelector('#offcanvasRight');
+          let bsOffcanvas = bootstrap.Offcanvas.getInstance(offcanvasAuth) || new bootstrap.Offcanvas(offcanvasAuth);
+          bsOffcanvas.show();
+        }
+      }
+    
+      // Вызов функции при загрузке страницы
+      window.onload = openAuthOffcanvasIfRequired();
+    
+      // Добавление слушателей на события открытия и закрытия панели
+      offcanvasElementList.forEach(function (offcanvasEl) {
+        offcanvasEl.addEventListener('shown.bs.offcanvas', function () {
+          const url = new URL(window.location);
+          url.searchParams.set('auth', 'open');
+          window.history.pushState({ path: url.toString() }, '', url.toString());
+        });
+    
+        offcanvasEl.addEventListener('hidden.bs.offcanvas', function () {
+          const url = new URL(window.location);
+          url.searchParams.delete('auth');
+          window.history.pushState({ path: url.toString() }, '', url.toString());
+        });
+      });
+    });
+    
+    
+    </script>
+    <script>
+        var pinContainer = document.querySelector(".pin-code");
+    
+    pinContainer.addEventListener('keyup', function (event) {
+        var target = event.srcElement;
+    
+        var maxLength = parseInt(target.attributes["maxlength"].value, 10);
+        var myLength = target.value.length;
+    
+        if (myLength >= maxLength) {
+            var next = target;
+            while (next = next.nextElementSibling) {
+                if (next == null) break;
+                if (next.tagName.toLowerCase() == "input") {
+                    next.focus();
+                    break;
+                }
+            }
+        }
+    
+        if (myLength === 0) {
+            var next = target;
+            while (next = next.previousElementSibling) {
+                if (next == null) break;
+                if (next.tagName.toLowerCase() == "input") {
+                    next.focus();
+                    break;
+                }
+            }
+        }
+    }, false);
+    
+    pinContainer.addEventListener('keydown', function (event) {
+        var target = event.srcElement;
+        target.value = "";
+    }, false);
+    </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+            crossorigin="anonymous"></script>
+    
+    </body>
+</html>

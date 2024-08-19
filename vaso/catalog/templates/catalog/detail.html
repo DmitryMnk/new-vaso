@@ -1,0 +1,96 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="{% static 'main/css/normalize.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="{% static 'main/css/fonts.css' %}">    
+    <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'catalog/css/catalog.css' %}">
+    <title>{{title}}</title>
+</head>
+<body>
+
+    <section class="catalog__section detail section">
+        <div class="detail__container container">
+            <div class="detail__head">
+                <a href="{% url 'main' %}" class="detail__back-link back-link"></a>
+                <a href="{% url 'main' %}" class="detail__back-link-logo back-link-logo"></a>
+            </div>
+            <div class="detail__content">
+                <div class="detail__content-photos">
+                    {% if item.photos %}
+                        <div class="detail__content-swiper swiper">
+                            <div class="detail__content-swiper-wrapper swiper-wrapper">
+                                {% for photo in item.photos.all %}
+                                
+                                    <div class="detail__content-swiper-slide swiper-slide">
+                                        <div style="background-image: url('{{photo.image.url}}');"  class="detail__content-swiper-slide-card"></div>
+                                    </div>
+                                    
+                                {% endfor %}
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    {% else %}
+                        <img src="{% static 'catalog/img/card/default.jpg' %}" alt="Фото букета" class="detail__image">
+                    {% endif %}
+                </div>
+                
+                <div class="detail__description">
+                    <div class="detail__description-content">
+                        {{item.description | linebreaks | safe}}
+                    </div>
+                    <p class="detail__description-title">
+                        Оформление заказа
+                    </p>
+                    <form method="POST" class="detail__form">
+                        {% csrf_token %}
+                        <div class="detail__form-block">
+                            <label class="detail__form-label">Имя</label>
+                            <input name="name" type="text" class="detail__form-input input-styles" {% if user.is_authenticated %} value='{{user.first_name}}' {% else %}value="{{user.first_name}}"{% endif %}>
+                        </div>
+                        <div class="detail__form-block">
+                            <label class="detail__form-label">Телефон</label>
+                            <input name="phone" type="text" class="detail__form-input input-styles" {% if user.is_authenticated %} value='{{user.username}}' {% else %}value="{{user.first_name}}"{% endif %}>
+                        </div>
+                        <div class="detail__form-block">
+                            <label class="detail__form-label">Адрес</label>
+                            <input name="address" type="text" class="detail__form-input input-styles">
+                        </div>
+                        <div class="detail__form-block">
+                            <span>Сумма заказа {{ item.amount }}</span>
+                        </div>
+
+                        <button class="catalog__button" type="submit">Заказать</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper(".swiper", {
+      slidesPerView: 1,
+      spaceBetween: 30,
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      },
+      loop: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+    });
+  </script>
+
+</html>

@@ -1,0 +1,252 @@
+@font-face {
+    font-family: 'Grtsk Peta';
+    src: url('../fonts/GrtskPeta-Thin.eot');
+    src: local('Grtsk Peta Thin'), local('GrtskPeta-Thin'),
+        url('../fonts/GrtskPeta-Thin.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/GrtskPeta-Thin.woff2') format('woff2'),
+        url('../fonts/GrtskPeta-Thin.woff') format('woff'),
+        url('../fonts/GrtskPeta-Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Grtsk Peta';
+    src: url('../fonts/GrtskPeta-LightItalic.eot');
+    src: local('Grtsk Peta Light Italic'), local('GrtskPeta-LightItalic'),
+        url('../fonts/GrtskPeta-LightItalic.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/GrtskPeta-LightItalic.woff2') format('woff2'),
+        url('../fonts/GrtskPeta-LightItalic.woff') format('woff'),
+        url('../fonts/GrtskPeta-LightItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Grtsk Peta Bkslnt';
+    src: url('../fonts/GrtskPetaBkslnt-Light.eot');
+    src: local('Grtsk Peta Bkslnt Light'), local('GrtskPetaBkslnt-Light'),
+        url('../fonts/GrtskPetaBkslnt-Light.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/GrtskPetaBkslnt-Light.woff2') format('woff2'),
+        url('../fonts/GrtskPetaBkslnt-Light.woff') format('woff'),
+        url('../fonts/GrtskPetaBkslnt-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Grtsk Peta';
+    src: url('../fonts/GrtskPeta-SemiboldItalic.eot');
+    src: local('Grtsk Peta Semibold Italic'), local('GrtskPeta-SemiboldItalic'),
+        url('../fonts/GrtskPeta-SemiboldItalic.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/GrtskPeta-SemiboldItalic.woff2') format('woff2'),
+        url('../fonts/GrtskPeta-SemiboldItalic.woff') format('woff'),
+        url('../fonts/GrtskPeta-SemiboldItalic.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Grtsk Peta';
+    src: url('../fonts/GrtskPeta-BoldItalic.eot');
+    src: local('Grtsk Peta Bold Italic'), local('GrtskPeta-BoldItalic'),
+        url('../fonts/GrtskPeta-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/GrtskPeta-BoldItalic.woff2') format('woff2'),
+        url('../fonts/GrtskPeta-BoldItalic.woff') format('woff'),
+        url('../fonts/GrtskPeta-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Grtsk Peta';
+    src: url('../fonts/GrtskPeta-Regular.eot');
+    src: local('Grtsk Peta Regular'), local('GrtskPeta-Regular'),
+        url('../fonts/GrtskPeta-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/GrtskPeta-Regular.woff2') format('woff2'),
+        url('../fonts/GrtskPeta-Regular.woff') format('woff'),
+        url('../fonts/GrtskPeta-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Grtsk Peta Bkslnt';
+    src: url('../fonts/GrtskPetaBkslnt-Thin.eot');
+    src: local('Grtsk Peta Bkslnt Thin'), local('GrtskPetaBkslnt-Thin'),
+        url('../fonts/GrtskPetaBkslnt-Thin.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/GrtskPetaBkslnt-Thin.woff2') format('woff2'),
+        url('../fonts/GrtskPetaBkslnt-Thin.woff') format('woff'),
+        url('../fonts/GrtskPetaBkslnt-Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Grtsk Peta Bkslnt';
+    src: url('../fonts/GrtskPetaBkslnt-Bold.eot');
+    src: local('Grtsk Peta Bkslnt Bold'), local('GrtskPetaBkslnt-Bold'),
+        url('../fonts/GrtskPetaBkslnt-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/GrtskPetaBkslnt-Bold.woff2') format('woff2'),
+        url('../fonts/GrtskPetaBkslnt-Bold.woff') format('woff'),
+        url('../fonts/GrtskPetaBkslnt-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Grtsk Peta';
+    src: url('../fonts/GrtskPeta-ThinItalic.eot');
+    src: local('Grtsk Peta Thin Italic'), local('GrtskPeta-ThinItalic'),
+        url('../fonts/GrtskPeta-ThinItalic.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/GrtskPeta-ThinItalic.woff2') format('woff2'),
+        url('../fonts/GrtskPeta-ThinItalic.woff') format('woff'),
+        url('../fonts/GrtskPeta-ThinItalic.ttf') format('truetype');
+    font-weight: 100;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Grtsk Peta';
+    src: url('../fonts/GrtskPeta-Bold.eot');
+    src: local('Grtsk Peta Bold'), local('GrtskPeta-Bold'),
+        url('../fonts/GrtskPeta-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/GrtskPeta-Bold.woff2') format('woff2'),
+        url('../fonts/GrtskPeta-Bold.woff') format('woff'),
+        url('../fonts/GrtskPeta-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Grtsk Peta Bkslnt';
+    src: url('../fonts/GrtskPetaBkslnt-Medium.eot');
+    src: local('Grtsk Peta Bkslnt Medium'), local('GrtskPetaBkslnt-Medium'),
+        url('../fonts/GrtskPetaBkslnt-Medium.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/GrtskPetaBkslnt-Medium.woff2') format('woff2'),
+        url('../fonts/GrtskPetaBkslnt-Medium.woff') format('woff'),
+        url('../fonts/GrtskPetaBkslnt-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Grtsk Peta';
+    src: url('../fonts/GrtskPeta-ExtralightItalic.eot');
+    src: local('Grtsk Peta Extralight Italic'), local('GrtskPeta-ExtralightItalic'),
+        url('../fonts/GrtskPeta-ExtralightItalic.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/GrtskPeta-ExtralightItalic.woff2') format('woff2'),
+        url('../fonts/GrtskPeta-ExtralightItalic.woff') format('woff'),
+        url('../fonts/GrtskPeta-ExtralightItalic.ttf') format('truetype');
+    font-weight: 200;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Grtsk Peta';
+    src: url('../fonts/GrtskPeta-MediumItalic.eot');
+    src: local('Grtsk Peta Medium Italic'), local('GrtskPeta-MediumItalic'),
+        url('../fonts/GrtskPeta-MediumItalic.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/GrtskPeta-MediumItalic.woff2') format('woff2'),
+        url('../fonts/GrtskPeta-MediumItalic.woff') format('woff'),
+        url('../fonts/GrtskPeta-MediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Grtsk Peta Bkslnt';
+    src: url('../fonts/GrtskPetaBkslnt-Extralight.eot');
+    src: local('Grtsk Peta Bkslnt Extralight'), local('GrtskPetaBkslnt-Extralight'),
+        url('../fonts/GrtskPetaBkslnt-Extralight.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/GrtskPetaBkslnt-Extralight.woff2') format('woff2'),
+        url('../fonts/GrtskPetaBkslnt-Extralight.woff') format('woff'),
+        url('../fonts/GrtskPetaBkslnt-Extralight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Grtsk Peta';
+    src: url('../fonts/GrtskPeta-Extralight.eot');
+    src: local('Grtsk Peta Extralight'), local('GrtskPeta-Extralight'),
+        url('../fonts/GrtskPeta-Extralight.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/GrtskPeta-Extralight.woff2') format('woff2'),
+        url('../fonts/GrtskPeta-Extralight.woff') format('woff'),
+        url('../fonts/GrtskPeta-Extralight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Grtsk Peta';
+    src: url('../fonts/GrtskPeta-Medium.eot');
+    src: local('Grtsk Peta Medium'), local('GrtskPeta-Medium'),
+        url('../fonts/GrtskPeta-Medium.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/GrtskPeta-Medium.woff2') format('woff2'),
+        url('../fonts/GrtskPeta-Medium.woff') format('woff'),
+        url('../fonts/GrtskPeta-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Grtsk Peta';
+    src: url('../fonts/GrtskPeta-Italic.eot');
+    src: local('Grtsk Peta Italic'), local('GrtskPeta-Italic'),
+        url('../fonts/GrtskPeta-Italic.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/GrtskPeta-Italic.woff2') format('woff2'),
+        url('../fonts/GrtskPeta-Italic.woff') format('woff'),
+        url('../fonts/GrtskPeta-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Grtsk Peta';
+    src: url('../fonts/GrtskPeta-Light.eot');
+    src: local('Grtsk Peta Light'), local('GrtskPeta-Light'),
+        url('../fonts/GrtskPeta-Light.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/GrtskPeta-Light.woff2') format('woff2'),
+        url('../fonts/GrtskPeta-Light.woff') format('woff'),
+        url('../fonts/GrtskPeta-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Grtsk Peta Bkslnt';
+    src: url('../fonts/GrtskPetaBkslnt-Semibold.eot');
+    src: local('Grtsk Peta Bkslnt Semibold'), local('GrtskPetaBkslnt-Semibold'),
+        url('../fonts/GrtskPetaBkslnt-Semibold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/GrtskPetaBkslnt-Semibold.woff2') format('woff2'),
+        url('../fonts/GrtskPetaBkslnt-Semibold.woff') format('woff'),
+        url('../fonts/GrtskPetaBkslnt-Semibold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Grtsk Peta';
+    src: url('../fonts/GrtskPeta-Semibold.eot');
+    src: local('Grtsk Peta Semibold'), local('GrtskPeta-Semibold'),
+        url('../fonts/GrtskPeta-Semibold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/GrtskPeta-Semibold.woff2') format('woff2'),
+        url('../fonts/GrtskPeta-Semibold.woff') format('woff'),
+        url('../fonts/GrtskPeta-Semibold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Grtsk Peta Bkslnt';
+    src: url('../fonts/GrtskPetaBkslnt-Regular.eot');
+    src: local('Grtsk Peta Bkslnt Regular'), local('GrtskPetaBkslnt-Regular'),
+        url('../fonts/GrtskPetaBkslnt-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/GrtskPetaBkslnt-Regular.woff2') format('woff2'),
+        url('../fonts/GrtskPetaBkslnt-Regular.woff') format('woff'),
+        url('../fonts/GrtskPetaBkslnt-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
