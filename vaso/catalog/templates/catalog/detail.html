@@ -6,10 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" href="{% static 'main/css/normalize.css' %}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="{% static 'main/package/swiper-bundle.min.css' %}">
     <link rel="stylesheet" href="{% static 'main/css/fonts.css' %}">    
     <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
     <link rel="stylesheet" href="{% static 'catalog/css/catalog.css' %}">
+    <link rel="stylesheet" href="{% static 'catalog/css/catalog_media.css' %}">
+    
+    <script type="module" defer src="{% static 'main/js/detail.js' %}"></script>
     <title>{{title}}</title>
 </head>
 <body>
@@ -22,7 +25,7 @@
             </div>
             <div class="detail__content">
                 <div class="detail__content-photos">
-                    {% if item.photos %}
+                    {% if item.photos.all %}
                         <div class="detail__content-swiper swiper">
                             <div class="detail__content-swiper-wrapper swiper-wrapper">
                                 {% for photo in item.photos.all %}
@@ -39,7 +42,63 @@
                         <img src="{% static 'catalog/img/card/default.jpg' %}" alt="Фото букета" class="detail__image">
                     {% endif %}
                 </div>
-                
+                <div class="detail__description-hidden">
+                    <p class="detail__description-hidden-price">{{item.price}}</p>
+                    <p class="detail__description-hidden-name">{{item.name}}</p>
+                    <div class="detail__description-accordeon">
+                        <div class="detail__description-accordeon-header">
+                            <p class="detail__description-accordeon-title">Описание</p>
+                            <div class="detail__description-accordeon-button">
+                                <span class="detail__description-accordeon-button-line first-line"></span>
+                                <span class="detail__description-accordeon-button-line second-line"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="detail__description-icon-list reset-list">
+                        <li class="detail__description-icon-list-item first-list-item">
+                            <p class="detail__description-icon-list-item-title">Букет собран и готов к доставке</p>
+                        </li>
+                        <li class="detail__description-icon-list-item second-list-item">
+                            <p class="detail__description-icon-list-item-title">Бесплатная доставка</p>
+                        </li>
+                        <li class="detail__description-icon-list-item third-list-item">
+                            <p class="detail__description-icon-list-item-title">Гарантия качества</p>
+                        </li>
+                    </ul>
+                    <p class="detail__description-title">
+                        Оформление заказа
+                    </p>
+                    <form method="POST" class="detail__form">
+                        <p class="auth-block__message detail-message-hidden"></p>
+                        {% csrf_token %}
+                        <div class="detail__form-block">
+                            <label class="detail__form-label">Имя</label>
+                            <input id="name-input-hidden" name="name" type="text" class="detail__form-input input-styles">
+                        </div>
+                        {% if request.user.is_authenticated %}
+                        <div class="detail__form-block">
+                            <label class="detail__form-label">Номер телефона: {{ phone }}</label>
+                        </div>
+                        {% else %}
+                            <div class="detail__form-block">
+                                <label class="detail__form-label">Телефон</label>
+                                <input placeholder="+7(000)000-00-00" id="detail-phone-input detail-phone-input-hidden" name="phone" type="text" class="detail__form-input input-styles phone-input-obj">
+                            </div>
+                        {% endif %}
+
+                        <div class="detail__form-block">
+                            <label class="detail__form-label">Адрес</label>
+                            <input required id="address-input-hidden" name="address" type="text" class="detail__form-input input-styles">
+                        </div>
+                        {% if user.is_authenticated %}
+                            <button class="catalog__button" type="submit">Заказать</button>
+                        {% else %}
+                            <button class="catalog__button catalog__open-modal" type="submit">Заказать</button>
+                        {% endif %}
+
+                    </form>
+
+                </div>
                 <div class="detail__description">
                     <div class="detail__description-content">
                         {{item.description | linebreaks | safe}}
@@ -48,49 +107,63 @@
                         Оформление заказа
                     </p>
                     <form method="POST" class="detail__form">
+                        <p class="auth-block__message detail-message"></p>
                         {% csrf_token %}
                         <div class="detail__form-block">
                             <label class="detail__form-label">Имя</label>
-                            <input name="name" type="text" class="detail__form-input input-styles" {% if user.is_authenticated %} value='{{user.first_name}}' {% else %}value="{{user.first_name}}"{% endif %}>
+                            <input required id="name-input" name="name" type="text" class="detail__form-input input-styles">
                         </div>
-                        <div class="detail__form-block">
-                            <label class="detail__form-label">Телефон</label>
-                            <input name="phone" type="text" class="detail__form-input input-styles" {% if user.is_authenticated %} value='{{user.username}}' {% else %}value="{{user.first_name}}"{% endif %}>
-                        </div>
+                        {% if request.user.is_authenticated %}
+                
+                            <div class="detail__form-block">
+                                <label class="detail__form-label">Номер телефона: {{ phone }}</label>
+                            </div>
+                        {% else %}
+                            <div class="detail__form-block">
+                                <label class="detail__form-label">Телефон</label>
+                                <input placeholder="+7(000)000-00-00" id="detail-phone-input" name="phone" type="text" class="detail__form-input detail-phone-input input-styles phone-input-obj">
+                            </div>
+                        {% endif %}
+
                         <div class="detail__form-block">
                             <label class="detail__form-label">Адрес</label>
-                            <input name="address" type="text" class="detail__form-input input-styles">
+                            <input required id="address-input" name="address" type="text" class="detail__form-input input-styles">
                         </div>
                         <div class="detail__form-block">
                             <span>Сумма заказа {{ item.amount }}</span>
                         </div>
+                        
+                        {% if user.is_authenticated %}
+                            <button class="catalog__button" type="submit">Заказать</button>
+                        {% else %}
+                            <button class="catalog__button catalog__open-modal" type="submit">Заказать</button>
+                        {% endif %}
 
-                        <button class="catalog__button" type="submit">Заказать</button>
                     </form>
                 </div>
             </div>
         </div>
     </section>
-    
+    <div class="catalog__modal modal">
+        <div class="catalog__modal-wrapper modal-wrapper">
+            <button class="catalog__modal-wrapper modal-close-button reset-button"></button>
+
+            <div class="auth-block__inp-code pin-code" id="label-code-input">
+                <input class="auth-block__num-input" id="label-code-input-one" type="number" maxlength="1" autofocus>
+                <input class="auth-block__num-input" id="label-code-input-two" type="number" maxlength="1">
+                <input class="auth-block__num-input" id="label-code-input-three" type="number" maxlength="1">
+                <input class="auth-block__num-input" id="label-code-input-four" type="number" maxlength="1">
+            </div>
+
+            <button id="check-code" class="auth-block__check-code auth-block-button reset-button">Подтвердить</button>
+            <div class="auth-block__resend-buttons">
+                <button class="catalog__change-phone-button auth-block-resend-button reset-button">Сменить номер</button>
+                <button class="catalog__resend-button auth-block-resend-button reset-button">Отправить повторно</button>
+            </div>
+        </div>
+    </div>
 </body>
 
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-  <!-- Initialize Swiper -->
-  <script>
-    var swiper = new Swiper(".swiper", {
-      slidesPerView: 1,
-      spaceBetween: 30,
-      autoplay: {
-        delay: 2500,
-        disableOnInteraction: false,
-      },
-      loop: true,
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-    });
-  </script>
 
 </html>

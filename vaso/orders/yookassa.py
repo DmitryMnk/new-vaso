@@ -30,7 +30,7 @@ def create_payment(order: Order):
     builder.set_confirmation(
         {
             "type": ConfirmationType.REDIRECT,
-            "return_url": f"{HOST}/orders"
+            "return_url": f"{HOST}/users/account"
         }
 
     )
@@ -54,6 +54,7 @@ def create_payment(order: Order):
     )
 
     order.payment = payment
+
     order.save()
 
     return payment.url

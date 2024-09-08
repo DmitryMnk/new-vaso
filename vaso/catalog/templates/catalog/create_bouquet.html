@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
     <link rel="stylesheet" href="{% static 'catalog/css/catalog.css' %}">
     <link rel="stylesheet" href="{% static 'catalog/css/catalog_media.css' %}">
+    <script src="{% static 'main/js/create.js' %}" type="module"></script>
     <title>{{title}}</title>
 </head>
 <body>
@@ -20,24 +21,30 @@
             </div>
             <form method="post" class="catalog__form">
                 {% csrf_token %}
-                <div class="catalog__form-block">
+                <div id="step-block-1" class="catalog__form-block first-step create-step create-step--active">
                     <p class="catalog__form-block-title">1. Какие цвета вы хотите видеть в вашем букете?</p>
+                    <p class="catalog__form-block-message"></p>
                     <ul class="catalog__form-block-list reset-list">
                         {% for color in colors %}
                             <li class="catalog__form-block-list-item">
                                 <label class="catalog__form-block-list-item-label">
-                                    <input name="color" class="catalog__custom-checkbox custom-checkbox" value="{{color}}" type="checkbox">
+                                    <input name="color" class="catalog__custom-checkbox custom-checkbox" value="{{color.name}}" type="checkbox">
                                     <div class="catalog__form-checkbox-block">
-                                        <div class="catalog__form-checkbox-block-color" style="background-color: {{color.color}};"></div>
                                         <p class="catalog__form-checkbox-block-name">{{ color.name }}</p>
                                     </div>
                                 </label>
                             </li>
                         {% endfor %}
                     </ul>
+
+                    <div class="catalog__form-block-buttons">
+                        <button id="step-block-button-1" class="catalog__form-block-button reset-button">Далее</button>
+                    </div>
+
                 </div>
-                <div class="catalog__form-block">
+                <div id="step-block-2" class="catalog__form-block create-step">
                     <p class="catalog__form-block-title">2. Какую упаковку вы предпочитаете для букета?</p>
+                    <p class="catalog__form-block-message"></p>
                     <ul class="catalog__form-block-list reset-list">
                         {% for pack in package %}
                             <li class="catalog__form-block-list-item">
@@ -51,31 +58,49 @@
                             </li>
                         {% endfor %}
                     </ul>
+                    <div class="catalog__form-block-buttons">
+                        <button id="step-block-button-2" class="catalog__form-block-button reset-button">Далее</button>
+                    </div>
                 </div>
 
-                <div class="catalog__form-block">
+                <div id="step-block-3" class="catalog__form-block create-step">
                     <p class="catalog__form-block-title">3. Укажите ваш бюджет на букет</p>
-                    <p class="catalog__form-block-subtitle">Наши флористы соберут лучший букет исходя из ваших предпочтений и букета. (Минимальная сумма: 1350 р.)</p>
-                    <input id="budget" name="budget" placeholder="Напишите ответ здесь" type="text" required class="catalog__form-input input-styles">
+                    <p class="catalog__form-block-subtitle">Наши флористы соберут лучший букет исходя из ваших предпочтений и букета. (Минимальная сумма: 5000 р.)</p>
+                    <p class="catalog__form-block-message"></p>
+                    <input id="budget" name="price" placeholder="Напишите ответ здесь" type="text" required class="catalog__form-input input-styles">
+                    <div class="catalog__form-block-buttons">
+                        <button id="step-block-button-3" class="catalog__form-block-button reset-button">Далее</button>
+                    </div>
                 </div>
 
-                <div class="catalog__form-block">
+                <div id="step-block-4" class="catalog__form-block create-step">
                     <p class="catalog__form-block-title">4. Что ещё стоит учесть в букете?</p>
                     <p class="catalog__form-block-subtitle">Пропустите если нет дополнительных пожеланий.</p>
+                    <p class="catalog__form-block-message"></p>
                     <input name="else" placeholder="Напишите ответ здесь" type="text" class="catalog__form-input input-styles">
+                    <div class="catalog__form-block-buttons">
+                        <button id="step-block-button-4" class="catalog__form-block-button reset-button">Далее</button>
+                    </div>
                 </div>
 
-                <div class="catalog__form-block">
+                <div id="step-block-5" class="catalog__form-block create-step">
                     <p class="catalog__form-block-title">5. Укажите ваше имя?</p>
+                    <p class="catalog__form-block-message"></p>
                     <input name="name" required placeholder="Напишите ответ здесь" type="text" class="catalog__form-input input-styles">
+                    <div class="catalog__form-block-buttons">
+                        <button id="step-block-button-5" class="catalog__form-block-button reset-button">Далее</button>
+                    </div>
                 </div>
 
-                <div class="catalog__form-block">
+                <div id="step-block-6" class="catalog__form-block create-step">
                     <p class="catalog__form-block-title">6. Укажите адрес доставки.</p>
+                    <p class="catalog__form-block-message"></p>
                     <input name="address" required placeholder="Напишите ответ здесь" type="text" class="catalog__form-input input-styles">
+                    <button id="submit-button" class="catalog__button" type="submit">Заказать</button>
+                    
                 </div>
 
-                <button id="submit-button" class="catalog__button" type="submit">заказать</button>
+
             </form>
         </div>
         
@@ -84,7 +109,7 @@
 <script>
     const budgetInput = document.getElementById('budget');
     const submitButton = document.getElementById('submit-button');
-    const 
+    const checkboxes = document.querySelectorAll('custom-checkbox');
     
     budgetInput.addEventListener('input', () => {
         const value = budgetInput.value

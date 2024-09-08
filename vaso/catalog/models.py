@@ -27,21 +27,25 @@ class Package(models.Model):
 
 
 class Bouquet(models.Model):
-    choices = (
+
+    SC = 'SC'
+    IB = 'IB'
+
+    CHOICES = (
         ("SC", "Онлайн-витрина"),
         ("IB", "Идеальный букет"),
     )
 
-    name = models.CharField(max_length=80, unique=True, null=True, verbose_name='Название')
-    price = models.DecimalField(max_digits=7, decimal_places=2, verbose_name='Цена')
+    name = models.CharField(max_length=80, null=True, blank=True, verbose_name='Название')
+    price = models.IntegerField(verbose_name='Цена')
     discount = models.DecimalField(default=0.0, max_digits=7, decimal_places=2, verbose_name="Скидка")
-    description = models.TextField(verbose_name="Описание")
-    is_reserved = models.BooleanField(null=False, verbose_name="Зарезервировано")
-    is_sold = models.BooleanField(null=False, verbose_name="Продано")
+    description = models.TextField(verbose_name="Описание", null=True, blank=True)
+    is_reserved = models.BooleanField(verbose_name="Зарезервировано", default=False)
+    is_sold = models.BooleanField(verbose_name="Продано", default=False)
     created_at = models.TimeField(auto_now=True, verbose_name="Создано")
-    bouquet_type = models.CharField(max_length=100, verbose_name="Тип букета", choices=choices)
+    bouquet_type = models.CharField(max_length=100, verbose_name="Тип букета", choices=CHOICES)
     city = models.ForeignKey(to='City', on_delete=models.PROTECT, null=True, verbose_name="Город")
-    package = models.ForeignKey(to='Package', on_delete=models.PROTECT, null=False, verbose_name="Упаковка")
+    package = models.ForeignKey(to='Package', on_delete=models.PROTECT, null=True, blank=True, verbose_name="Упаковка")
 
     class Meta:
         db_table = "bouquets"
@@ -58,12 +62,13 @@ class Bouquet(models.Model):
 
 class Colors(models.Model):
     name = models.CharField(max_length=100, unique=True, verbose_name='Название')
-    color = models.CharField(max_length=7, unique=True, verbose_name='HEX код')
 
     class Meta:
         verbose_name = "Цвет"
         verbose_name_plural = "Цвета"
 
+    def __str__(self):
+        return self.name
 
 class BouquetPhotos(models.Model):
     image = models.ImageField(verbose_name='Фото букета', upload_to='bouqets/photos')

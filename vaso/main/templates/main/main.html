@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="{% static 'main/css/normalize.css' %}">
     <link rel="stylesheet" href="{% static 'main/css/fonts.css' %}">
     <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+    <script defer type="module" src="{% static 'main/js/main.js' %}"></script>
     <title> {{title}} </title>
 </head>
 <body id="main">
@@ -26,10 +27,11 @@
                 <div class="col-4 text-center d-none d-md-block">
                     <a href="#online" class="main-menu-text text-white">Online-витрина</a>
                 </div>
-                <a {% if user.is_authenticated %} href="{% url 'account' %}"
-                   {% else %} data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" href="#offcanvasRight"
-                   {% endif %} class="user-icon">
-                </a>
+                {% if user.is_authenticated %}
+                    <a href="{% url 'account' %}" class="user-icon"></a>
+                {% else %}
+                    <button class="user-account-button user-icon"></button>
+                {% endif %}
             </div>
             <div class="row justify-content-center pt-300">
                 <div class="main-logo-max  d-none d-lg-block"></div>
@@ -109,9 +111,15 @@
                     </div>
                 </div>
                 <div class="row justify-content-center mt-5 pb-5 btn-order">
-                    <a href="{% url 'create_bouquet' %}" class="btn shadow-sm" role="button">
-                        <span class="text-white">Заказать</span>
-                    </a>
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'create_bouquet' %}" class="btn shadow-sm" role="button">
+                            <span class="text-white">Заказать</span>
+                        </a>
+                    {% else %}
+                        <button class="btn shadow-sm user-form-button">
+                            <span class="text-white">Заказать</span>
+                        </button>
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -146,9 +154,8 @@
         </div>
         <div class="container-md h-100">
             <div class="row justify-content-start">
-    
                 {% for item in items %}
-                <div class="online-card" style="background-image: url( '{% if item.photos %}  {{ item.photos.all.0.image.url }} {% else %} {% static 'main/default_images/default_bouquet.png' %} {% endif %}')">
+                <div class="online-card" style="background-image: url( '{% if item.photos.all %}  {{ item.photos.all.0.image.url }} {% else %} {% static 'main/default_images/default_bouquet.png' %} {% endif %}')">
                         <span class="online-card-text text-white">{{ item.amount }}</span>
                         <a href="{% url 'bouquet_detail' item.pk %}" class="btn btn-sm shadow-sm" role="button">
                             <span class="online-card-btn-text text-white">Быстрый заказ</span>
@@ -168,30 +175,32 @@
                     </div>
     
                 </div>
+                
                 <div class="col-lg-4 col-md-6 col-12 my-3 my-md-0">
-                    <div class="d-flex justify-content-center justify-content-md-center"><a href="#" class="main-menu-text text-white mb-2">О нас</a></div>
-                    <div class="d-flex justify-content-center justify-content-md-center"><a href="#" class="main-menu-text text-white mb-2">Доставка и оплата</a></div>
+                    <div class="d-flex justify-content-center justify-content-md-center"><a href="{% url 'about' %}" class="main-menu-text text-white mb-2">О нас</a></div>
+                    <div class="d-flex justify-content-center justify-content-md-center"><a href="{% url 'delivery_and_payment_info' %}" class="main-menu-text text-white mb-2">Доставка и оплата</a></div>
                     <div class="d-flex justify-content-center justify-content-md-center"><a href="#" class="main-menu-text text-white">Поддержка</a></div>
+                    <div class="d-flex last-link justify-content-center policy-href justify-content-md-center"><a href="{% url 'policy' %}" class="main-menu-text text-white">Политика конфиденциальности</a></div>
                 </div>
+
                 <div class="col-lg-4 col-md-6 col-12">
                     <div class="row justify-content-center"><a href="tel:+ 7 928 816 74 47"
-                                                               class="phone-text text-white text-center">+ 7 928 816 74
-                        47</a>
+                                                               class="phone-text text-white text-center">+7 918 073 82 52</a>
                     </div>
                     <div class="row justify-content-between justify-content-md-center mt-2">
                         <div class="col-3">
                             <div class="d-flex justify-content-center">
-                                <a href="#" class="telegram-icon"></a>
+                                <a href="https://t.me/vaso_blog" class="telegram-icon"></a>
                             </div>
                         </div>
                         <div class="col-3">
                              <div class="d-flex justify-content-center">
-                                 <a href="#" class="vk-icon"></a>
+                                 <a href="https://vk.com/club227171128" class="vk-icon"></a>
                              </div>
                         </div>
                         <div class="col-3">
                              <div class="d-flex justify-content-center">
-                                  <a href="#" class="whatsapp-icon"></a>
+                                  <a href="https://wa.me/79180738252?text=" class="whatsapp-icon"></a>
                              </div>
                         </div>
                     </div>
@@ -199,38 +208,39 @@
             </div>
         </div>
     </footer>
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-        <div class="offcanvas-header">
-            <div class="d-flex justify-content-end  w-100">
-                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Закрыть"></button>
+    
+    <div class="auth-block-back"></div>
+    <div class="auth-block">
+        <div class="auth-block__content">
+            <button class="auth-block__close-button reset-button" aria-label="Закрыть"></button>
+            <div class="auth-block__send-form auth-block-step step-block--active">
+                <h3 class="auth-block__title">Вход или регистрация</h3>
+                <p class="auth-block__sub-title">Позвоним на указанный номер. Введите последние четыре цифры номера телефона или код из SMS-сообщения.</p>
+                <p id="send-message" class="auth-block__message"></p>
+                <input value="+7" type="text" placeholder="+7(000)000-00-00" class="auth-block__phone-input input-styles">
+
+                <button class="auth-block__send-code auth-block-button reset-button">Получить код</button>
             </div>
-        </div>
-        <div class="auth-menu" id="login">
-            <span class="auth-menu-title" id="staticBackdropLabel">Войти или зарегистрироваться</span>
-            <span class="mt-2">
-                Позвоним на указанный номер.
-    Введите последние четыре цифры номера телефона или код из SMS-сообщения.
-            </span>
-    
-            <label class="line-input w-100 mt-4" id="label-phone-input">
-                    <input value=""
-                           id="phone-input" placeholder="+7(000)000-00-00"/>
-                </label>
-            <span id="message"></span>
-    
-            <div class="d-none mt-4 pin-code" id="label-code-input">
-                <input id="label-code-input-one" type="number" maxlength="1" autofocus>
-                <input id="label-code-input-two" type="number" maxlength="1">
-                <input id="label-code-input-three" type="number" maxlength="1">
-                <input id="label-code-input-four" type="number" maxlength="1">
+            <div class="auth-block__check-form auth-block-step">
+                <p class="auth-block__sub-title">На ваш номер телефона <span id="sub-title-phone">{% if phone %}{{phone}}{% endif %}</span> поступит звонок. Введите 4 последние цифры номера телефона.</p>
+                <p id="check-message" class="auth-block__message"></p>
+                <div class="auth-block__inp-code pin-code" id="label-code-input">
+                    <input class="auth-block__num-input" id="label-code-input-one" type="number" maxlength="1" autofocus>
+                    <input class="auth-block__num-input" id="label-code-input-two" type="number" maxlength="1">
+                    <input class="auth-block__num-input" id="label-code-input-three" type="number" maxlength="1">
+                    <input class="auth-block__num-input" id="label-code-input-four" type="number" maxlength="1">
+                </div>
+
+                <button id="check-code" class="auth-block__check-code auth-block-button reset-button">Подтвердить</button>
+                <div class="auth-block__resend-buttons">
+                    <button class="auth-block__check-code auth-block-resend-button reset-button">Сменить номер</button>
+                    <button class="auth-block__check-code auth-block-resend-button reset-button">Отправить повторно</button>
+
+                </div>
             </div>
-    
-                <button class="btn-chat-status-card-workspace mt-5" id="sendForm">
-                    <span class="text-white">Получить код</span>
-                </button>
-    
         </div>
     </div>
+
     <script>
         const btn = document.querySelector('#sendForm');
     
@@ -258,44 +268,35 @@
             }
         };
     
-    const send = async () => {
-        if (isFirstClick) {
-            document.querySelector('#label-phone-input').classList.toggle("d-none");
-            document.querySelector('#label-code-input').classList.toggle("d-none");
+    // const send = async () => {
+    //     if (isFirstClick) {
+    //         document.querySelector('#label-phone-input').classList.toggle("d-none");
+    //         document.querySelector('#label-code-input').classList.toggle("d-none");
     
-            const firstChild = btn.children[0];
-            firstChild.innerHTML = "Отправить код";
+    //         const firstChild = btn.children[0];
+    //         firstChild.innerHTML = "Отправить код";
     
-            const phoneNumber = document.querySelector('#phone-input').value;
-            const phoneUrl = '';
-            await sendRequestToBackend(phoneUrl, { phone_number: phoneNumber });
+    //         const phoneNumber = document.querySelector('#phone-input').value;
+    //         const phoneUrl = '';
+    //         await sendRequestToBackend(phoneUrl, { phone_number: phoneNumber });
     
-            isFirstClick = false;
-        } else {
-            const part1 = document.querySelector('#label-code-input-one').value;
-            const part2 = document.querySelector('#label-code-input-two').value;
-            const part3 = document.querySelector('#label-code-input-three').value;
-            const part4 = document.querySelector('#label-code-input-four').value;
+    //         isFirstClick = false;
+    //     } else {
+    //         const part1 = document.querySelector('#label-code-input-one').value;
+    //         const part2 = document.querySelector('#label-code-input-two').value;
+    //         const part3 = document.querySelector('#label-code-input-three').value;
+    //         const part4 = document.querySelector('#label-code-input-four').value;
     
-            const code = `${part1}${part2}${part3}${part4}`
-            const codeUrl = '';
-            const nextUrl = new URLSearchParams(window.location.search).get('next');
+    //         const code = `${part1}${part2}${part3}${part4}`
+    //         const codeUrl = '';
+    //         const nextUrl = new URLSearchParams(window.location.search).get('next');
     
-            const resp = await sendRequestToBackend(codeUrl, { otp: code, next: nextUrl });
-                if (resp && resp.isAuthorized) {
-                    window.location.href = resp.next;
-                }
-        }
-    };
-        if (btn) {
-            btn.addEventListener("click", send);
-        }
-    
-    
-    
-    
-    
-    
+    //         const resp = await sendRequestToBackend(codeUrl, { otp: code, next: nextUrl });
+    //             if (resp && resp.isAuthorized) {
+    //                 window.location.href = resp.next;
+    //             }
+    //     }
+    // };    
         window.addEventListener("DOMContentLoaded", function() {
       [].forEach.call( document.querySelectorAll('#phone-input'), function(input) {
         var keyCode;
@@ -374,7 +375,7 @@
     
     </script>
     <script>
-        var pinContainer = document.querySelector(".pin-code");
+    var pinContainer = document.querySelector(".pin-code");
     
     pinContainer.addEventListener('keyup', function (event) {
         var target = event.srcElement;

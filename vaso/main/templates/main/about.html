@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'main/css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/fonts.css' %}">
+    <link rel="stylesheet" href="{% static 'main/package/swiper-bundle.min.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'user/css/user.css' %}">
+    <title>{{title}}</title>
+</head>
+<body>
+    <header class="header">
+        <div class="header__container container">
+            <a href="{% url 'main' %}" class="header__backref"></a>
+            <a href="{% url 'main' %}" class="header__logoref"></a>
+        </div>
+        
+    </header>
+    <section class="info">
+        <div class="container info__container">
+            <h1 class="info__title">Реквизиты</h1>
+            <p class="info__text">ИНН: 2312329130</p>
+            <p class="info__text">ОГРН: 1242300044678</p>
+            <p class="info__text">Юр адрес: Краснодарский край, г.о. город Краснодар, г Краснодар, ул им. Селезнева, д. 204/2</p>
+            <p class="info__text">Телефон: +7 918 073 82 52</p>
+            <p class="info__text">Почта:  vaso_project@bk.ru</p>
+        </div>
+    </section>
+</body>
+</html>
