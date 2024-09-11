@@ -5,7 +5,6 @@ from django.http import FileResponse, HttpRequest, HttpResponse
 from django.shortcuts import render
 from django.views.generic import TemplateView
 from catalog.models import Bouquet
-from user.utils import get_of_create_user
 
 
 class MainView(TemplateView):

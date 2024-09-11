@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import UserAccountView, logout_user, SendAuthCodeAPI, CheckCodeAPI
+from .views import UserAccountView, logout_user, SendAuthCodeAPI, CheckCodeAPI, CheckCodeAndPayAPI
 from .utils import webhook_code
 
 urlpatterns = [
@@ -8,6 +8,6 @@ urlpatterns = [
     path('webhook_code/', webhook_code, name='webhook_code'),
     path('api/send_auth_code/', SendAuthCodeAPI.as_view(), name='send_auth_code'),
     path('api/check_auth_code/', CheckCodeAPI.as_view(), name='check_auth_code'),
-    path('api/check_code_and_pay/', CheckCodeAPI.as_view(), name='check_auth_code'),
+    path('api/check_code_and_pay/', CheckCodeAndPayAPI.as_view(), name='check_auth_code_and_pay'),
 
 ]

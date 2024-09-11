@@ -5,7 +5,6 @@ from django.shortcuts import render, redirect
 from django.http import HttpRequest, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import DetailView, TemplateView
-from rest_framework.exceptions import PermissionDenied
 from rest_framework.views import APIView
 from urllib3 import request
 from rest_framework.request import Request
@@ -14,11 +13,7 @@ from orders.utils import create_order
 from orders.yookassa import create_payment
 from .models import Bouquet, City, Colors, Package
 from user.models import UserProfile
-from orders.models import Order
-from orders.enums import OrderType
-from main.amocrm import create_deal_showcase
-from datetime import timedelta
-from django.utils import timezone
+
 
 from .utils import create_bouquet
 

@@ -42,12 +42,18 @@ function phoneInputCorrecting(input) {
     const lastSym = value[value.length - 1]
     const subValue = value.slice(0, -1);
 
-    if (lastSym < '0' || lastSym > '9') {
+    if ((lastSym < '0' || lastSym > '9') && lastSym !== '+') {
         input.value = subValue;
     }
 
     if (value.length > 12) {
         input.value = subValue;
+    }
+}
+
+function startInput(input) {
+    if (input.value == '') {
+        input.value = '+7';
     }
 }
 
@@ -57,4 +63,5 @@ export {
     sendCodeAPI, 
     getCSRF,
     phoneInputCorrecting,
+    startInput,
 }

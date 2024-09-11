@@ -1,8 +1,10 @@
 import {Swiper} from '../package/swiper-bundle.min.mjs';
 import { openModal, toggleModal } from "./catalog_functions.js";
-import { phoneInputCorrecting, sendCodeAPI } from "./base.js";
+import { phoneInputCorrecting, sendCodeAPI, startInput } from "./base.js";
 
-const openModalButton = document.querySelectorAll('.catalog__open-modal');
+const swiper = document.querySelector('.swiper')
+const openModalButton = document.querySelector('.open-modal');
+const openModalButtonHidden = document.querySelector('.open-modal-hidden');
 const modal = document.querySelector('.modal');
 const closeModalButton = document.querySelector('.modal-close-button');
 const phoneInput = document.querySelector('.detail-phone-input');
@@ -21,8 +23,9 @@ const part3 = document.getElementById('label-code-input-three');
 const part4 = document.getElementById('label-code-input-four');
 
 
-openModalButton.forEach(element => element.addEventListener('click', (e) => {
+openModalButton.addEventListener('click', (e) => {
     var isError = false;
+    console.log('Check modal open');
     e.preventDefault();
 
     if (phoneInput.value == '' || nameInput.value == '' || addressInput.value == '') {
@@ -36,27 +39,73 @@ openModalButton.forEach(element => element.addEventListener('click', (e) => {
         detailMessage.textContent = 'Заполните все поля';
         detailMessage.classList.add('message-error');
     }
-}));
+});
+
+openModalButtonHidden.addEventListener('click', (e) => {
+    var isError = false;
+    console.log('Check modal open');
+    e.preventDefault();
+
+    if (phoneInputHidden.value == '' || nameInputHidden.value == '' || addressInputHidden.value == '') {
+        isError = true;
+    }
+
+    if (!isError) {
+        console.log('awdad')
+        openModal(modal, phoneInputHidden.value, detailMessage);
+    } else {
+        detailMessage.textContent = 'Заполните все поля';
+        detailMessage.classList.add('message-error');
+    }
+});
 
 
 phoneInput.addEventListener('input', () => {
     phoneInputCorrecting(phoneInput);
-    console.log('awdsd')
 })
 
-checkCode.addEventListener('click', () => {
+phoneInput.addEventListener('focus', () => {
+    startInput(phoneInput);
+})
+
+phoneInputHidden.addEventListener('input', () => {
+    phoneInputCorrecting(phoneInputHidden);
+})
+
+phoneInputHidden.addEventListener('focus', () => {
+    startInput(phoneInputHidden);
+})
+
+
+checkCode.addEventListener('click', (e) => {
+    e.preventDefault();
     if (part1.value == '' || part2.value == '' || part3.value == '' || part4.value == '') {
         detailMessage.textContent = 'Введите код'
         return;
     }
+
+    let name = nameInput.value;
+    let address = addressInput.value;
+    
+    if (name == '') {
+        name = nameInputHidden.value;
+    }
+
+    if (address == '') {
+        address = addressInputHidden.value;
+    }
+
     
     const code = part1.value + part2.value + part3.value + part4.value;
 
-    sendCodeAPI('../../users/api/check_auth_code/', {'code': code}).then(response => {
+    const b_id = checkCode.dataset.bouquet;
+
+    sendCodeAPI('../../users/api/check_code_and_pay/', {'code': code, 'id': b_id, 'name': name, 'address': address}).then(response => {
+        console.log(response)
         if (response.data.error) {
-            checkMessage.textContent = response.data.error
+            checkMessage.textContent = response.data.message
         } else {
-            window.location = response.data.href;
+            window.location.href = response.data.redirect_url;
         }
     })
 })
@@ -66,4 +115,17 @@ closeModalButton.addEventListener('click', () => {
 })
 
 
+new Swiper(swiper, {
+    slidesPerView: 1,
+    spaceBetween: 10,
+    autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+    },
+    loop: true,
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },   
+})
 

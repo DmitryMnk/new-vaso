@@ -21,7 +21,7 @@ ALLOWED_IPS = [
     '82.202.237.68'
 ]
 
-def get_of_create_user(phone: str, name: str = None) -> UserProfile:
+def get_or_create_user(phone: str, name: str = None) -> UserProfile:
     if UserProfile.objects.filter(phone_number=phone).exists():
         profile: UserProfile = UserProfile.objects.get(phone_number=phone)
         return profile

@@ -82,7 +82,7 @@
                         {% else %}
                             <div class="detail__form-block">
                                 <label class="detail__form-label">Телефон</label>
-                                <input placeholder="+7(000)000-00-00" id="detail-phone-input detail-phone-input-hidden" name="phone" type="text" class="detail__form-input input-styles phone-input-obj">
+                                <input placeholder="+7(000)000-00-00" id="detail-phone-input" name="phone" type="text" class="detail__form-input input-styles detail-phone-input-hidden phone-input-obj">
                             </div>
                         {% endif %}
 
@@ -93,7 +93,7 @@
                         {% if user.is_authenticated %}
                             <button class="catalog__button" type="submit">Заказать</button>
                         {% else %}
-                            <button class="catalog__button catalog__open-modal" type="submit">Заказать</button>
+                            <button id="{item.id}" class="catalog__button catalog__open-modal open-modal-hidden">Заказать</button>
                         {% endif %}
 
                     </form>
@@ -136,7 +136,7 @@
                         {% if user.is_authenticated %}
                             <button class="catalog__button" type="submit">Заказать</button>
                         {% else %}
-                            <button class="catalog__button catalog__open-modal" type="submit">Заказать</button>
+                            <button id="{item.id}" class="catalog__button catalog__open-modal open-modal" type="submit">Заказать</button>
                         {% endif %}
 
                     </form>
@@ -155,7 +155,7 @@
                 <input class="auth-block__num-input" id="label-code-input-four" type="number" maxlength="1">
             </div>
 
-            <button id="check-code" class="auth-block__check-code auth-block-button reset-button">Подтвердить</button>
+            <button id="check-code" data-bouquet="{{item.pk}}" class="auth-block__check-code auth-block-button reset-button">Подтвердить</button>
             <div class="auth-block__resend-buttons">
                 <button class="catalog__change-phone-button auth-block-resend-button reset-button">Сменить номер</button>
                 <button class="catalog__resend-button auth-block-resend-button reset-button">Отправить повторно</button>
@@ -163,7 +163,43 @@
         </div>
     </div>
 </body>
-
+<script>
+     var pinContainer = document.querySelector(".pin-code");
+    
+    pinContainer.addEventListener('keyup', function (event) {
+        var target = event.srcElement;
+    
+        var maxLength = parseInt(target.attributes["maxlength"].value, 10);
+        var myLength = target.value.length;
+    
+        if (myLength >= maxLength) {
+            var next = target;
+            while (next = next.nextElementSibling) {
+                if (next == null) break;
+                if (next.tagName.toLowerCase() == "input") {
+                    next.focus();
+                    break;
+                }
+            }
+        }
+    
+        if (myLength === 0) {
+            var next = target;
+            while (next = next.previousElementSibling) {
+                if (next == null) break;
+                if (next.tagName.toLowerCase() == "input") {
+                    next.focus();
+                    break;
+                }
+            }
+        }
+    }, false);
+    
+    pinContainer.addEventListener('keydown', function (event) {
+        var target = event.srcElement;
+        target.value = "";
+    }, false);
+</script>
 
 
 </html>

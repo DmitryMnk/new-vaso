@@ -10,7 +10,10 @@ from django.views.generic import TemplateView
 from rest_framework.views import APIView
 from rest_framework.request import Request
 from rest_framework.response import Response
-from .utils import get_of_create_user, authorize_user, send_code
+
+from catalog.models import Bouquet
+from orders.utils import create_order, create_payment
+from .utils import get_or_create_user, authorize_user, send_code
 
 from orders.models import Order
 from .models import UserProfile
@@ -79,7 +82,6 @@ class SendAuthCodeAPI(APIView):
         )
 
 
-
 class CheckCodeAPI(APIView):
 
     @staticmethod
@@ -89,10 +91,9 @@ class CheckCodeAPI(APIView):
         code = request.session.get('code')
         user_code = request.data.get('code')
         name = request.data.get('name')
-
         if str(code) == user_code:
             phone = request.session['phone']
-            profile = get_of_create_user(phone, name)
+            profile = get_or_create_user(phone, name)
             authorize_user(profile, request)
             return Response({'error': False}, status=200)
         return Response({
@@ -109,18 +110,35 @@ class CheckCodeAndPayAPI(APIView):
         code = request.session.get('code')
         user_code = request.data.get('code')
         name = request.data.get('name')
-        print(code)
-        print(user_code)
+        address = request.data.get('address')
+        b_id = request.data.get('id')
         if str(code) == user_code:
             phone = request.session['phone']
-            profile = get_of_create_user(phone, name)
+            profile = get_or_create_user(phone, name)
+            bouquet = Bouquet.objects.get(pk=int(b_id))
+            if bouquet.is_reserved or bouquet.is_sold:
+                return Response({
+                    'error': True,
+                    'message': 'Букет продан'
+                }, status=200)
+            order_data = {
+                'bouquet': bouquet,
+                'city': bouquet.city,
+                'profile': profile,
+                'price': bouquet.price,
+                'address': address,
+                'name': name
+            }
+            bouquet.is_reserved = True
+            bouquet.save()
             authorize_user(profile, request)
+            new_order = create_order(True, order_data)
+            payment_url = create_payment(new_order)
 
-
-
-            return Response({'error': False}, status=200)
+            return Response({'error': False, 'redirect_url': payment_url}, status=200)
         return Response({
-            'error': 'Введен неверный код.'
+            'error': True,
+            'message': 'Введен неверный код.'
         }, status=200)
 
 
